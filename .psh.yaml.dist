@@ -18,12 +18,12 @@ paths:
   - dev-ops/common/actions
 
 const:
-  DB_USER: "app"
-  DB_PASSWORD: "app"
-  DB_HOST: "mysql"
+  DB_USER: "db"
+  DB_PASSWORD: "db"
+  DB_HOST: "db"
   DB_PORT: "3306"
-  DB_NAME: "shopware"
-  APP_URL: "http://localhost:8000"
+  DB_NAME: "db"
+  APP_URL: "http://localhost"
   APP_ENV: "dev"
   APP_MAILER_URL: "smtp://mailhog:1025"
   APP_WATCH: "false"
@@ -81,7 +81,7 @@ environments:
 
   administration:
     dynamic:
-      HOST: if [ -z "$(grep docker /proc/self/cgroup)" ]; then echo "localhost"; else echo "0.0.0.0"; fi
+      HOST: echo "0.0.0.0"
     paths:
       - "dev-ops/administration/actions"
 
